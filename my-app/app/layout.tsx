@@ -3,11 +3,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 export const metadata = {
-  title: {
-    default: "Profile Project",
-    template: "%s | Profile Project",
-  },
-  description: "A Next.js profile project",
+  title: "Profile Project",
+  description: "CGT390 Lab 15 profile directory",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -25,10 +22,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Link href="/" style={{ color: "white", textDecoration: "none" }}>
             Home
           </Link>
+
           <Link href="/about" style={{ color: "white", textDecoration: "none" }}>
             About
           </Link>
         </nav>
+
         {children}
       </body>
     </html>
