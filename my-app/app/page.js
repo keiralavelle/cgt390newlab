@@ -10,17 +10,13 @@ async function fetchProfiles(search = "") {
     next: { revalidate: 60 },
   });
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch profiles");
-  }
-
   const data = await response.json();
   return data.users ? data.users : [];
 }
 
 export const metadata = {
-  title: "Home",
-  description: "Profile homepage",
+  title: "Profile Project",
+  description: "A Next.js profile project",
 };
 
 export default async function Home({ searchParams }) {
@@ -31,7 +27,7 @@ export default async function Home({ searchParams }) {
     <div className={styles.page}>
       <main className={styles.main}>
         <h1>Profile Directory</h1>
-        <p>Browse profiles and click a user to see more details.</p>
+        <p>Browse profiles and click a user to view details.</p>
 
         <form className={styles.searchForm}>
           <input
@@ -54,9 +50,11 @@ export default async function Home({ searchParams }) {
                 alt={`${user.firstName} ${user.lastName}`}
                 className={styles.profileImage}
               />
+
               <h2>
                 {user.firstName} {user.lastName}
               </h2>
+
               <p>{user.email}</p>
               <p>{user.company?.title}</p>
 
